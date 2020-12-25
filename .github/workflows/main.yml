@@ -1,0 +1,16 @@
+name: Blob storage website CI
+
+on:
+push:
+    branches: [ master ]
+pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:            
+    - uses: actions/checkout@v2
+    - uses: azure/login@v1
+      with:
+      creds: ${{ secrets.AZURE_CREDENTIALS }}
